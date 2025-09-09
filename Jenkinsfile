@@ -19,7 +19,7 @@ pipeline {
         }
     stage('Pushing to Dockerhub') {
             steps {
-                withDockerRegistry(credentialsId: 'Dockerhub_Credentials') {
+                withDockerRegistry(credentialsId: 'Dockerhub_Credentials', url: 'https://index.docker.io/v1/') {
                     sh 'docker push codebaazigar/healthcare:5.0'
                 }
             }
